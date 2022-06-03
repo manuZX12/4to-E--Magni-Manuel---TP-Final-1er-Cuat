@@ -6,7 +6,8 @@ public class ChangeCamera : MonoBehaviour
 {
     public GameObject Player;
     public GameObject Desactivate;
-    public GameObject Comprobante;
+    int KK;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,22 +17,23 @@ public class ChangeCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Comprobante.transform.position.y == 10)
+        if(KK == 1)
         {
             Player.SetActive(true);
 
             Desactivate.SetActive(false);
         }
+            
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Cube")
-        {
+        
             Player.SetActive(false);
 
             Desactivate.SetActive(true);
-        }
+        
         
     }
 }

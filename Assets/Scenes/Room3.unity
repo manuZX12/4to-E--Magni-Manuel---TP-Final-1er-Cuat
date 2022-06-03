@@ -148,6 +148,7 @@ MonoBehaviour:
   movementSpeed: 0.02
   JumpSpeed: 0.009
   FinishLine: {fileID: 945269982}
+  Comprobante: {fileID: 0}
 --- !u!65 &93741134
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1369,6 +1370,7 @@ GameObject:
   - component: {fileID: 841731479}
   - component: {fileID: 841731478}
   - component: {fileID: 841731480}
+  - component: {fileID: 841731481}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1431,6 +1433,20 @@ MonoBehaviour:
   minRotation: -65
   maxRotation: 60
   FirstGame: {fileID: 0}
+--- !u!114 &841731481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841731477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1410d79765982f41bbd30a5d577aedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1646137028}
+  Desactivate: {fileID: 534669902}
 --- !u!1 &856443063
 GameObject:
   m_ObjectHideFlags: 0
