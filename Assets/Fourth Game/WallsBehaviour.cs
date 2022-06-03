@@ -8,6 +8,7 @@ public class WallsBehaviour : MonoBehaviour
     public GameObject Wall;
     float Position;
     float Position2;
+    float Zposition = -10;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +21,13 @@ public class WallsBehaviour : MonoBehaviour
 
         while(num < 10)
         {
-            Position = Random.Range(-6.5f, -34);
-            Position2 = Random.Range(0, 9.5f);
+            Position = Random.Range(0, 9);
+              
             Instantiate(Wall);
-            Wall.transform.position = new Vector3 (Position, 0 ,Position2);
+            Wall.transform.position = new Vector3 (Zposition, 0 ,Position);
             num++;
+            Zposition = Zposition - 2;
         }
+       
     }
 }

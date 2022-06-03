@@ -7,11 +7,14 @@ public class CombinacioBehaviour : MonoBehaviour
     public GameObject NumeroMID;
     public GameObject NumeroIZ;
     public GameObject NumeroDR;
+    public GameObject Door;
     private int bloqueo = 0;
     private int grados = 0;
     private string flecha = "";
     public int Comprobante = 4;
-
+    int mprobante;
+    int mprobante2;
+    int mprobante3;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +79,11 @@ public class CombinacioBehaviour : MonoBehaviour
                     }
                     if (NumeroMID.transform.localEulerAngles.y == -90)
                     {
-                        Comprobante=1;
+                        mprobante=1;
+                    }
+                    else
+                    {
+                        mprobante = 0;
                     }
                 }
             }
@@ -123,7 +130,11 @@ public class CombinacioBehaviour : MonoBehaviour
                 }
                 if (NumeroDR.transform.localEulerAngles.y == 180)
                 {
-                    Comprobante = 2;
+                    mprobante3 = 1;
+                }
+                else
+                {
+                    mprobante3 = 0;
                 }
             }
 
@@ -170,10 +181,17 @@ public class CombinacioBehaviour : MonoBehaviour
                 }
                 if (NumeroMID.transform.localEulerAngles.y == -90)
                 {
-                    Comprobante = 1;
+                    mprobante2 = 1;
+                }
+                else
+                {
+                    mprobante2 = 0;
                 }
             }
-
+            if(mprobante == 1 && mprobante2 == 1 && mprobante3 == 1)
+            {
+                Destroy(Door);
+            }
             if (Comprobante > 5)
             {
                 Comprobante = 5;
