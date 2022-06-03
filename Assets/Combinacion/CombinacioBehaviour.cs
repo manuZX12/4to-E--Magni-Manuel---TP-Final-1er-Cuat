@@ -74,6 +74,10 @@ public class CombinacioBehaviour : MonoBehaviour
                         grados = 0;
 
                     }
+                    if (NumeroMID.transform.localEulerAngles.y == -90)
+                    {
+                        Comprobante=1;
+                    }
                 }
             }
 
@@ -117,6 +121,10 @@ public class CombinacioBehaviour : MonoBehaviour
 
                     }
                 }
+                if (NumeroDR.transform.localEulerAngles.y == 180)
+                {
+                    Comprobante = 2;
+                }
             }
 
 
@@ -159,6 +167,10 @@ public class CombinacioBehaviour : MonoBehaviour
                         grados = 0;
 
                     }
+                }
+                if (NumeroMID.transform.localEulerAngles.y == -90)
+                {
+                    Comprobante = 1;
                 }
             }
 
