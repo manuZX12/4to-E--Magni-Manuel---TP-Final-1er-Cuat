@@ -8,6 +8,8 @@ TagManager:
   - PickedObject
   - Game2
   - Cube1
+  - FinishButton
+  - FN
   layers:
   - Default
   - TransparentFX
