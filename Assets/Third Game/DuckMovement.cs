@@ -10,13 +10,15 @@ public class DuckMovement : MonoBehaviour
     public GameObject FinishLine;
     public GameObject Comprobante;
     private Vector3 move = Vector3.zero;
+    public GameObject Camera2;
+    public GameObject CamerPLayer;
     void Start()
     {
     }
 
     void Update()
     {
-        if(transform.position.y > 2)
+        if (transform.position.y > 2)
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
             {
@@ -54,7 +56,8 @@ public class DuckMovement : MonoBehaviour
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<Rigidbody>().isKinematic = false;
             Comprobante.transform.position = new Vector3(0, 10, 0);
-
+            Camera2.SetActive(false);
+            CamerPLayer.SetActive(true);
 
         }
 
