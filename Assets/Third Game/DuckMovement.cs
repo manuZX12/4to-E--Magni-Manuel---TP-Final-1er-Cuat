@@ -18,6 +18,12 @@ public class DuckMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Camera2.SetActive(false);
+            CamerPLayer.SetActive(true);
+        }
+       
         if (transform.position.y > 2)
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))

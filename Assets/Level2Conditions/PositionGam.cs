@@ -12,11 +12,9 @@ public class PositionGam : MonoBehaviour
     {
         if (PickedObject != null)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(1))
             {
                 PickedObject.GetComponent<Rigidbody>().useGravity = true;
-                PickedObject.GetComponent<Rigidbody>().isKinematic = false;
-                //hago al objeto hijo de nada
                 PickedObject.gameObject.transform.SetParent(null);
                 PickedObject = null;
             }
@@ -33,9 +31,6 @@ public class PositionGam : MonoBehaviour
                 //Al agarrar el objeto se desactiva la graverdad
                 col.GetComponent<Rigidbody>().useGravity = false;
 
-                //Al agarrar el objeto kinematic se activa
-                col.GetComponent<Rigidbody>().isKinematic = true;
-
                 //Mueve el objeto al empty Hand
                 col.transform.position = Game1.transform.position;
 
@@ -43,7 +38,6 @@ public class PositionGam : MonoBehaviour
                 col.gameObject.transform.SetParent(Game1.gameObject.transform);
 
                 Juego.transform.localEulerAngles = new Vector3(-89.079f, 0, 0);
-
 
                 PickedObject = col.gameObject;
 
