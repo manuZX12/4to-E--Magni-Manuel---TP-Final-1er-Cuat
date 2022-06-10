@@ -15,6 +15,7 @@ public class PositionGam : MonoBehaviour
             if (Input.GetMouseButtonUp(1))
             {
                 PickedObject.GetComponent<Rigidbody>().useGravity = true;
+                //PickedObject.GetComponent<Rigidbody>().isKinematic = false;
                 PickedObject.gameObject.transform.SetParent(null);
                 PickedObject = null;
             }
@@ -30,6 +31,8 @@ public class PositionGam : MonoBehaviour
             {
                 //Al agarrar el objeto se desactiva la graverdad
                 col.GetComponent<Rigidbody>().useGravity = false;
+
+                //col.GetComponent<Rigidbody>().isKinematic = true;
 
                 //Mueve el objeto al empty Hand
                 col.transform.position = Game1.transform.position;
