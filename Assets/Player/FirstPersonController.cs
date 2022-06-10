@@ -27,7 +27,11 @@ public class FirstPersonController : MonoBehaviour
     float mouseVerticalBackup = 2.0f;
     private Vector3 move = Vector3.zero;
 
-    
+    [Header("Sound Clips")]
+    public AudioSource source;
+    public AudioClip Pasos;
+    public AudioClip Salto;
+    public AudioClip ObjetivoLogrado;
 
     void Start()
     {
@@ -43,6 +47,10 @@ public class FirstPersonController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        {
+            PlayClip();
+        }
         h_mouse = mouseHorizontal * Input.GetAxis("Mouse X");
         v_mouse += mouseVertical * Input.GetAxis("Mouse Y");
 
@@ -57,15 +65,24 @@ public class FirstPersonController : MonoBehaviour
         if (characterController.isGrounded)
         {
             move = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-
+            PlayClip();
             if (Input.GetKey(KeyCode.LeftShift))
+            { 
                 move = transform.TransformDirection(move) * runSpeed;
-            else
+            }
+         else
+            {
                 move = transform.TransformDirection(move) * walkSpeed;
+                PlayClip();
+            }
+                
 
             if (Input.GetKey(KeyCode.Space))
-
+            {
                 move.y = jumpSpeed;
+            }
+
+
         }
         move.y -= gravity * Time.deltaTime;
 
@@ -86,7 +103,12 @@ public class FirstPersonController : MonoBehaviour
             mouseVertical = mouseVerticalBackup;
         }
         
-       
+       void PlayClip()
+        {
+            source.clip = Pasos;
+            source.Play();
+        }
+        
     }
     
 }

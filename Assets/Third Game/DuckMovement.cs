@@ -18,11 +18,6 @@ public class DuckMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            Camera2.SetActive(false);
-            CamerPLayer.SetActive(true);
-        }
        
         if (transform.position.y > 2)
         {
@@ -58,13 +53,20 @@ public class DuckMovement : MonoBehaviour
         }
         if (col.gameObject.name == "Finish")
         {
+            Camera2.SetActive(false);
+            CamerPLayer.SetActive(true);
             Destroy(FinishLine);
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<Rigidbody>().isKinematic = false;
-            Comprobante.transform.position = new Vector3(0, 10, 0);
-            Camera2.SetActive(false);
-            CamerPLayer.SetActive(true);
 
+        }
+        if(col.gameObject.tag == "Cube1")
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                Camera2.SetActive(true);
+                CamerPLayer.SetActive(false);
+            }
         }
 
         

@@ -7,6 +7,8 @@ public class RestartButton : MonoBehaviour
 {
   
     public GameObject Canvas;
+    public GameObject Player;
+    public GameObject CameraMain;
     void Start()
     {
         Canvas.SetActive(false);
@@ -15,6 +17,8 @@ public class RestartButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) )
         {
+            Player.SetActive(false);
+            CameraMain.SetActive(true);
             Canvas.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
         }
@@ -27,6 +31,8 @@ public class RestartButton : MonoBehaviour
     public void BackToScene()
     {
         Canvas.SetActive(false);
+        CameraMain.SetActive(false);
+        Player.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
     }
     public void ExitGame()

@@ -18,12 +18,13 @@ public class CombinatedKeys : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "PickedObject")
+        if (collision.gameObject.name == "Key")
         {
             if (transform.position.y > 0.3f)
             {
+                BigBox.transform.position = gameObject.transform.position;
                 Instantiate(BigBox);
-                BigBox.transform.position = transform.position;
+                
                 Destroy(gameObject);
             }
             else

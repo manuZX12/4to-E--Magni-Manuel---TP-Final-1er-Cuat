@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KeyBehaviour : MonoBehaviour
 {
-    public GameObject Key1;
     public GameObject Door;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +21,6 @@ public class KeyBehaviour : MonoBehaviour
     {
         if(Col.gameObject.name == "Key")
         {
-            Destroy(Key1);
             Destroy (Door);
         }
     }
