@@ -178,7 +178,7 @@ public class CombinacioBehaviour : MonoBehaviour
         AnguloIZ = NumeroIZ.transform.localEulerAngles.y;
         AnguloMID = NumeroMID.transform.localEulerAngles.y;
         AnguloDR = NumeroDR.transform.localEulerAngles.y;
-        if (AnguloMID == 270 && AnguloIZ == 180 && AnguloDR == 180)
+        if (AnguloMID == 270 && AnguloIZ == 270 && AnguloDR == 180)
         {
             Destroy(Door);
         }
