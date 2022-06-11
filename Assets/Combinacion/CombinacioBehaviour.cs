@@ -12,9 +12,9 @@ public class CombinacioBehaviour : MonoBehaviour
     private int grados = 0;
     private string flecha = "";
     public int Comprobante = 4;
-    public int mprobante;
-    public int mprobante2;
-    public int mprobante3;
+    public float AnguloMID;
+    public float AnguloIZ;
+    public float AnguloDR;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,6 @@ public class CombinacioBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (transform.localEulerAngles.x == 0)
         {
 
@@ -39,8 +38,7 @@ public class CombinacioBehaviour : MonoBehaviour
 
             if (Comprobante == 4)
             {
-
-
+                
                 if (bloqueo == 0)
                 {
                     if (Input.GetKey(KeyCode.DownArrow))
@@ -77,15 +75,8 @@ public class CombinacioBehaviour : MonoBehaviour
                         grados = 0;
 
                     }
-                    if (NumeroMID.transform.localEulerAngles.y == 0)
-                    {
-                        mprobante=1;
-                    }
-                    else
-                    {
-                        mprobante = 0;
-                    }
                 }
+                
             }
 
 
@@ -128,14 +119,6 @@ public class CombinacioBehaviour : MonoBehaviour
 
                     }
                 }
-                if (NumeroDR.transform.localEulerAngles.y == 0)
-                {
-                    mprobante3 = 1;
-                }
-                else
-                {
-                    mprobante3 = 0;
-                }
             }
 
 
@@ -154,7 +137,6 @@ public class CombinacioBehaviour : MonoBehaviour
                         bloqueo = 1;
                         flecha = "r";
                     }
-
                 }
                 else
                 {
@@ -169,7 +151,7 @@ public class CombinacioBehaviour : MonoBehaviour
                         {
                             this.NumeroIZ.GetComponent<Transform>().transform.Rotate(0, -1, 0, Space.Self);
                         }
-
+                        
 
                     }
                     else
@@ -179,24 +161,9 @@ public class CombinacioBehaviour : MonoBehaviour
 
                     }
                 }
-                if (NumeroMID.transform.localEulerAngles.y == 0)
-                {
-                    mprobante2 = 1;
-                }
-                else
-                {
-                    mprobante2 = 0;
-                }
-                if (mprobante == 1 && mprobante2 == 1 && mprobante3 == 1)
-                {
-                    Destroy(Door);
-                }
+                
             }
-            if(NumeroMID.transform.localEulerAngles.y == NumeroIZ.transform.localEulerAngles.y  && NumeroIZ.transform.localEulerAngles.y == NumeroDR.transform.localEulerAngles.y)
-            {
-                Destroy(Door);
-            }
-            
+
             if (Comprobante > 5)
             {
                 Comprobante = 5;
@@ -205,8 +172,17 @@ public class CombinacioBehaviour : MonoBehaviour
             {
                 Comprobante = 3;
             }
-
+            
         }
+
+        AnguloIZ = NumeroIZ.transform.localEulerAngles.y;
+        AnguloMID = NumeroMID.transform.localEulerAngles.y;
+        AnguloDR = NumeroDR.transform.localEulerAngles.y;
+        if (AnguloMID == 270 && AnguloIZ == 180 && AnguloDR == 180)
+        {
+            Destroy(Door);
+        }
+
     }
 
 }
