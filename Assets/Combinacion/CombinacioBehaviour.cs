@@ -15,6 +15,8 @@ public class CombinacioBehaviour : MonoBehaviour
     public float AnguloMID;
     public float AnguloIZ;
     public float AnguloDR;
+    public AudioSource source;
+    public AudioClip Vicory;
     // Start is called before the first frame update
     void Start()
     {
@@ -181,8 +183,11 @@ public class CombinacioBehaviour : MonoBehaviour
         if (AnguloMID == 270 && AnguloIZ == 270 && AnguloDR == 180)
         {
             Destroy(Door);
+            source.clip = Vicory;
+            source.Play();
         }
 
     }
+   
 
 }

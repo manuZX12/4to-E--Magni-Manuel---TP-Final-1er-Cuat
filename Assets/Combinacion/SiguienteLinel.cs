@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextLevel : MonoBehaviour
+public class SiguienteLinel : MonoBehaviour
 {
     public GameObject hand;
     private GameObject PickedObject;
-    public string Room;
+
     // Update is called once per frame
     void Update()
     {
@@ -29,15 +29,13 @@ public class NextLevel : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1) && PickedObject == null)
             {
-                
 
-                SceneManager.LoadScene("Room4");
+
+                SceneManager.LoadScene("Room2");
 
 
 
             }
         }
     }
-    
 }
-
