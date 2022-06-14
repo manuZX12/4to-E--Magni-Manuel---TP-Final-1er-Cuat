@@ -15,6 +15,9 @@ public class RestartButton : MonoBehaviour
     public Text timepo;
     private float restante;
     private bool enMarcha;
+
+    public AudioClip win;
+    public AudioSource source;
     void Start()
     {
         Button1.SetActive(false);
@@ -47,6 +50,8 @@ public class RestartButton : MonoBehaviour
                 Button1.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 contador.SetActive(false);
+                source.clip = win;
+                source.Play();
             }
             int tempMin = Mathf.FloorToInt(restante / 60);
             int tempSeg = Mathf.FloorToInt(restante % 60);
