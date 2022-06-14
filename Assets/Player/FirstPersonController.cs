@@ -29,7 +29,6 @@ public class FirstPersonController : MonoBehaviour
 
     [Header("Sound Clips")]
     public AudioSource source;
-    public AudioClip Pasos;
     public AudioClip Salto;
     public AudioClip ObjetivoLogrado;
 
@@ -105,7 +104,7 @@ public class FirstPersonController : MonoBehaviour
         
        void PlayClip()
         {
-            source.clip = Pasos;
+            source.clip = Salto;
             source.Play();
         }
         
